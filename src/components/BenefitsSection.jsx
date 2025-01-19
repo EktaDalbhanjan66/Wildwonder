@@ -16,7 +16,7 @@ const BenefitsSection = () => {
   return (
     <div className="w-full">
       {/* Tab Headers */}
-      <div className="flex gap-2 mb-2">
+      <div className="flex gap-2 mb-4 justify-center md:justify-start">
         <button
           onClick={() => setActiveTab("benefits")}
           className={`py-2 px-4 rounded-t-lg font-bold text-[#2a347b] ${
@@ -46,7 +46,7 @@ const BenefitsSection = () => {
       {/* Content Sections */}
       {activeTab === "benefits" && (
         <div className="bg-[#ddf1f7] rounded-xl p-6">
-          <div className="grid grid-cols-3 gap-x-6 gap-y-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
             <div className="flex flex-col items-center text-center">
               <img
                 src="https://drinkwildwonder.com/cdn/shop/files/Group_65.png?v=1708449515&width=150"
@@ -132,17 +132,15 @@ const BenefitsSection = () => {
 
       {activeTab === "nutrition" && (
         <div className="bg-[#fce281] rounded-xl p-6">
-            {
-                nutrientFacts.map((fact, index) => (
-                  <>
-                   <div key={index} className="flex flex-row justify-between">
-            <span className="text-[#2a347b] font-bold">{fact.label}</span>
-            <span className="text-[#2a347b] font-bold">{fact.value}</span>
-          </div>
-          <hr className="border-t-2 border-[#2a347b] mt-2" /></>
-                ))
-            }
-         
+          {nutrientFacts.map((fact, index) => (
+            <div key={index}>
+              <div className="flex flex-row justify-between">
+                <span className="text-[#2a347b] font-bold">{fact.label}</span>
+                <span className="text-[#2a347b] font-bold">{fact.value}</span>
+              </div>
+              <hr className="border-t-2 border-[#2a347b] mt-2" />
+            </div>
+          ))}
         </div>
       )}
     </div>
